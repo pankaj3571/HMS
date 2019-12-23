@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <div  id="card1">
+  <app-navbar></app-navbar>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header text-center">
+        <h1> Book Room </h1>
+      </div>
+      <div class="card-body">
+          <form #detail="ngForm">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputFuser">First Name</label>
+                        <input type="text" class="form-control" id="exampleInputFuser"  placeholder="Enter First Name" [(ngModel)]="FirstName" name="FirstName" #fName="ngModel" required>
+                        <span class="help-block" *ngIf="fName.errors?.required && fName.touched" style="color: tomato;">
+                           First Name is required
+                         </span>
+                    </div>
+
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                      <label for="exampleInputLuser">Last Name</label>
+                      <input type="text" class="form-control" id="exampleInputLuser"  placeholder="Enter Last Name" [(ngModel)]="LastName" name="LastName" #lName="ngModel" required>
+                      <span class="help-block" *ngIf="lName.errors?.required && lName.touched" style="color: tomato;">
+                          Last Name is required
+                        </span>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="Email" name="Email"
+                #email="ngModel" required>
+                <span class="help-block" *ngIf="email.errors?.required && email.touched" style="color: tomato;">
+                    Email is required
+                  </span>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                  </div>
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="exampleInputMobile">Mobile No</label>
+                      <input type="number" class="form-control" id="exampleInputMobile"  placeholder="Enter Mobileno" [(ngModel)]="MobileNo" name="MobileNo"
+                      #mobile="ngModel" required>
+                      <span class="help-block" *ngIf="mobile.errors?.required && mobile.touched" style="color: tomato;">
+                        Mobile is required
+                        </span>
+                      </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Adults</label>
+                        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Adults" [(ngModel)]="Adults" name="Adults"
+                        #adult="ngModel" required>
+                        <span class="help-block" *ngIf="adult.errors?.required && adult.touched" style="color: tomato;">
+                          Adult count is required
+                          </span>
+                      </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputChildren"> Children </label>
+                        <input type="number" class="form-control" id="exampleInputChildren" placeholder="Children" [(ngModel)]="Children" name="Children"
+                        #children="ngModel" required>
+                        <span class="help-block" *ngIf="children.errors?.required && children.touched" style="color: tomato;">
+                            children count is required
+                          </span>
+                      </div>
+                </div>
+              </div>
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="exampleInpuCheckIn"> CheckIn </label>
+                          <input type="text"
+                          placeholder="Datepicker"
+                          class="form-control"
+                          [minDate]="today"
+                          [(ngModel)]="CheckIn"
+                          name="CheckIn"
+                          bsDatepicker
+                          #checkin="ngModel" required>
+                          <span class="help-block" *ngIf="checkin.errors?.required && checkin.touched" style="color: tomato;">
+                              checkin  is required
+                            </span>
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="exampleInputCheckOut"> CheckOut </label>
+                          <input type="text"
+                          placeholder="Datepicker"
+                          class="form-control"
+                          [minDate]="Checkout"
+                          [(ngModel)]="CheckOut"
+                          name="CheckOut"
+                          bsDatepicker
+                          #checkout="ngModel" required>
+                          <span class="help-block" *ngIf="checkout.errors?.required && checkout.touched" style="color: tomato;">
+                              checkout  is required
+                            </span>
+                        </div>
+                  </div>
+                </div>
+              <div class="text-center">
+                  <button type="submit" class="btn" (click)="BookRoom()" [disabled]="detail.invalid">Submit</button>
+              </div>
+
+
+            </form>
+      </div>
+
+    </div>
+  </div>

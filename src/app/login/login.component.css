@@ -1,0 +1,18 @@
+#card1{
+  background-color:#1c1c1c;
+  height: 60px;
+
+}
+.card{
+width: 100%;
+margin-top: 40px;
+height: 400px;
+}
+.btn{
+  background: #1c1c1c;
+  color: white;
+}
+
+#signUpId{
+  margin-top: 20px;
+}

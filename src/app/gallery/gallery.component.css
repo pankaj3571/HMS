@@ -1,0 +1,30 @@
+#context{
+  color: white;
+  font-size: 20px;
+}
+
+.card{
+  margin-top: 15px;
+  width: 100%;
+  min-width: 300px;
+  height: 250px;
+
+}
+.d-block {
+height: 200px;
+width: 300px;
+}
+.card-image img{
+  width: 100%;
+  min-width: auto;
+}
+.carousel-item{
+  background: no-repeat center center scroll;
+  -webkit-background-size:cover;
+  background-size: cover;
+
+}
+#btn{
+  float:right;
+  color: #A8962D;
+}

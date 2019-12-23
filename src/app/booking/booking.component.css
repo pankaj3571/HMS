@@ -1,0 +1,12 @@
+#card1{
+  background-color:#1c1c1c;
+  height: 60px;
+
+}
+.card{
+  margin-top: 20px;
+}
+.btn{
+  background: black;
+  color: white;
+}

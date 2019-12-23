@@ -1,0 +1,5 @@
+#sticky-footer {
+  flex-shrink: none;
+  background-color: #00bfff;
+  margin-top: 15px;
+}

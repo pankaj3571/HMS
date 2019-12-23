@@ -1,0 +1,14 @@
+#card1{
+  background-color:black;
+  height: 60px;
+
+}
+.card{
+width: 100%;
+margin-top: 40px;
+height: auto;
+}
+.btn{
+  background: black;
+  color: white;
+}

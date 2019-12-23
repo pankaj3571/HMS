@@ -1,0 +1,19 @@
+#card1{
+  background-color:#1c1c1c;
+  height: 60px;
+
+}
+#UserText h1{
+  color: #1c1c1c;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+
+}
+#UserText{
+  margin-top: 20px;
+}
+#smile{
+  height: 40px;
+  width:40px;
+
+}

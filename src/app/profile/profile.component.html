@@ -1,0 +1,330 @@
+<div class="container-fluid">
+    <div  id="card1">
+  <app-navbar></app-navbar>
+    </div>
+  </div>
+<div class="container">
+  <div class="text-center" id="UserText">
+
+        <h1> Welcome {{UserName}}
+             <img src="../../assets/img/smiling-face-with-smiling-eyes_1f60a.png" id="smile">
+          </h1>
+  </div>
+</div>
+<div class="container">
+  <div class="card" [hidden]="isCardHidden">
+      <div class="card-header text-center"> Booking Details </div>
+      <div class="card-body"  *ngFor="let x of getId">
+        <div class="row" >
+          <div class="col-md-6" >
+              <label > Booking Id </label>
+
+          </div>
+          <div class="col-md-2">
+              <label > : </label>
+
+          </div>
+          <div class="col-md-4">
+            <p>{{x._id}} </p>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label > Name </label>
+
+            </div>
+            <div class="col-md-2">
+                <label > : </label>
+
+            </div>
+            <div class="col-md-4">
+              <p>{{x.FirstName}}</p>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <label > email </label>
+
+              </div>
+              <div class="col-md-2">
+                  <label > : </label>
+
+              </div>
+              <div class="col-md-4">
+                <p>{{x.Email}} </p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label > Children </label>
+
+                </div>
+                <div class="col-md-2">
+                    <label > : </label>
+
+                </div>
+                <div class="col-md-4">
+                  <p>{{x.Children}} </p>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <label > Adults </label>
+
+                  </div>
+                  <div class="col-md-2">
+                      <label > : </label>
+
+                  </div>
+                  <div class="col-md-4">
+                    <p> {{x.Adults}} </p>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label > CheckIn </label>
+
+                    </div>
+                    <div class="col-md-2">
+                        <label > : </label>
+
+                    </div>
+                    <div class="col-md-4">
+                      <p> {{x.CheckIn |date}} </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label > CheckOut </label>
+
+                      </div>
+                      <div class="col-md-2">
+                          <label > : </label>
+
+                      </div>
+                      <div class="col-md-4">
+                        <p> {{x.CheckOut|date }} </p>
+                      </div>
+                    </div>
+
+      </div>
+      <div class="card-footer text-right">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="upDate()"  [hidden]="isHidden"> Edit </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-danger"  (click)="CancleBooking()" [hidden]="!isHidden" > Cancle Booking </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <button class="btn btn-success" (click)="ConfirmBooking()" [hidden]="isHidden"> Booking Confirm </button>
+      </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <!-- <form>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputFuser">First Name</label>
+                        <input type="text" class="form-control" id="exampleInputFuser"  placeholder="Enter First Name" [(ngModel)]="FirstName" name="FirstName">
+                    </div>
+
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                      <label for="exampleInputLuser">Last Name</label>
+                      <input type="text" class="form-control" id="exampleInputLuser"  placeholder="Enter Last Name" [(ngModel)]="LastName" name="LastName">
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="Email" name="Email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                  </div>
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="exampleInputMobile">Mobile No</label>
+                      <input type="email" class="form-control" id="exampleInputMobile"  placeholder="Enter Mobileno" [(ngModel)]="MobileNo" name="MobileNo">
+
+                      </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Adults</label>
+                        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Adults" [(ngModel)]="Adults" name="Adults">
+                      </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputChildren"> Children </label>
+                        <input type="number" class="form-control" id="exampleInputChildren" placeholder="Children" [(ngModel)]="Children" name="Children">
+                      </div>
+                </div>
+              </div>
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="exampleInpuCheckIn"> CheckIn </label>
+                          <input type="text"
+                          placeholder="Datepicker"
+                          class="form-control"
+
+                          [(ngModel)]="CheckIn"
+                          value="{{ CheckIn }}"
+                          name="CheckIn"
+
+                          bsDatepicker
+                          >
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="exampleInputCheckOut"> CheckOut </label>
+                          <input type="date"
+                          placeholder="Datepicker"
+                          class="form-control"
+                          [minDate]="Checkout"
+                          [(ngModel)]="CheckOut"
+                          name="CheckOut"
+                          bsDatepicker>
+                        </div>
+                  </div>
+                </div>
+              <div class="text-center">
+                  <button type="submit" class="btn" >Submit</button>
+              </div>
+
+
+            </form> -->
+            <form>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputFuser">First Name</label>
+                        <input type="text" class="form-control" id="exampleInputFuser"  placeholder="Enter First Name" [(ngModel)]="FirstName" name="FirstName">
+                    </div>
+
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                      <label for="exampleInputLuser">Last Name</label>
+                      <input type="text" class="form-control" id="exampleInputLuser"  placeholder="Enter Last Name" [(ngModel)]="LastName" name="LastName">
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="Email" name="Email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                  </div>
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="exampleInputMobile">Mobile No</label>
+                      <input type="email" class="form-control" id="exampleInputMobile"  placeholder="Enter Mobileno" [(ngModel)]="MobileNo" name="MobileNo">
+
+                      </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Adults</label>
+                        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Adults" [(ngModel)]="Adults" name="Adults">
+                      </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputChildren"> Children </label>
+                        <input type="number" class="form-control" id="exampleInputChildren" placeholder="Children" [(ngModel)]="Children" name="Children">
+                      </div>
+                </div>
+              </div>
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="exampleInpuCheckIn"> CheckIn </label>
+                          <input type="text"
+                          placeholder="Datepicker"
+                          class="form-control"
+                          id="exampleInpuCheckIn"
+
+                          bsDatepicker
+                          [(ngModel)]="ChooseCheckIn"
+                          value="{{CheckIn}}"
+                          name="ChooseCheckIn"
+
+                          >
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="exampleInputCheckOut"> CheckOut </label>
+                          <input type="text"
+                          placeholder="Datepicker"
+                          class="form-control"
+
+                          id="exampleInputCheckOut"
+                          [(ngModel)]="ChooseCheckOut"
+                          value="{{CheckOut}}"
+                          name="ChooseCheckOut"
+                          bsDatepicker>
+                        </div>
+                  </div>
+                </div>
+              <!-- <div class="text-center">
+                  <button type="submit" class="btn" (click)="BookRoom()">Submit</button>
+              </div> -->
+
+
+            </form>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="SaveChanges()" >Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container" [hidden]="!isCardHidden">
+  <div class="card">
+    <div class="card-body text-center">
+      <h1> Booking Canclled Successfull.<a [routerLink]="['/home']" routerLinkActive="active" >Book Now</a> </h1>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+
+.navbar-light .navbar-brand{
+  color: #fff;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.nav-link{
+  color: #fff;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+  color: #fff;
+  font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: #fff;
+}
